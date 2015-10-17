@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.17)  17 OCT 2015 11:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.17)  17 OCT 2015 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -897,113 +897,9 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \includegraphics on input line 19.
  (./Presentation.nav)
-LaTeX Font Info:    Try loading font information for U+msa on input line 41.
-
-(c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 41.
-
-(c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 41.
-
-(c:/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-[]\OT1/cmss/bx/n/9 Leptonen:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/mathkerncmss/m/sl/9 e \OML/cmm/m/it/9 ^^V ^^\ ^^W[] ^^W[] ^^W[]$
- []
-
-
-Underfull \hbox (badness 4792) in paragraph at lines 41--41
-\OT1/cmss/m/n/9 kom-men frei in
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/bx/n/9 Quarks:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/mathkerncmss/m/sl/9 u d s c b t$ \OT1/cmss/m/n/9 kom-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/m/n/9 Elementarteilchen
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/m/n/9 wer-den aus
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/m/n/9 Quarks aufge-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/bx/n/9 Meso-nen und
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/m/n/9 Mesonen:
- []
-
-
-Overfull \hbox (54.36325pt too wide) in paragraph at lines 41--41
-\OML/cmm/m/it/9 ^^Y[]\OT1/cmss/m/n/9 (\OT1/mathkerncmss/m/sl/9 u[]\OT1/cmss/m/n
-/9 ) \OML/cmm/m/it/9 ^^Y[]\OT1/cmss/m/n/9 ([]\OT1/mathkerncmss/m/sl/9 d\OT1/cms
-s/m/n/9 ) \OT1/mathkerncmss/m/sl/9 K[]\OT1/cmss/m/n/9 (\OT1/mathkerncmss/m/sl/9
- u[]\OT1/cmss/m/n/9 ) \OT1/mathkerncmss/m/sl/9 K[]\OT1/cmss/m/n/9 ([]\OT1/mathk
-erncmss/m/sl/9 s\OT1/cmss/m/n/9 )$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
-\OT1/cmss/m/n/9 Baryonen:
- []
-
-
-Overfull \hbox (42.2025pt too wide) in paragraph at lines 41--41
-\OT1/mathkerncmss/m/sl/9 p\OT1/cmss/m/n/9 (\OT1/mathkerncmss/m/sl/9 uud\OT1/cms
-s/m/n/9 ) \OT1/mathkerncmss/m/sl/9 n\OT1/cmss/m/n/9 (\OT1/mathkerncmss/m/sl/9 u
-dd\OT1/cmss/m/n/9 ) ^^C(\OT1/mathkerncmss/m/sl/9 uds\OT1/cmss/m/n/9 ) 
-(\OT1/mathkerncmss/m/sl/9 sss\OT1/cmss/m/n/9 )$ 
- []
-
-
-LaTeX Warning: File `Plan_Sihlstrasse.png' not found on input line 41.
-
-
-! Package pdftex.def Error: File `Plan_Sihlstrasse.png' not found.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.41 \end{frame}
-                
-Using draft setting for this image.
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 41.
+(Font)              size <5> substituted on input line 20.
 
 [1
 
@@ -1017,12 +913,12 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 \tf@snm=\write8
 \openout8 = `Presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
 
 (./Presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 25.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25.
 Package rerunfilecheck Info: File `Presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1030,29 +926,23 @@ Package rerunfilecheck Info: File `Presentation.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 25.
  ) 
 Here is how much of TeX's memory you used:
- 16640 strings out of 493054
- 318890 string characters out of 6138326
- 391888 words of memory out of 5000000
- 19753 multiletter control sequences out of 15000+600000
- 9949 words of font info for 37 fonts, out of 8000000 for 9000
+ 16610 strings out of 493054
+ 318241 string characters out of 6138326
+ 389888 words of memory out of 5000000
+ 19750 multiletter control sequences out of 15000+600000
+ 5150 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,55p,413b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2015/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2015/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmss9.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmssbx10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmssi8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-i9.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Presentation.pdf (1 page, 92223 bytes).
+<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb>
+Output written on Presentation.pdf (1 page, 33871 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 500000)
  43 words of extra memory for PDF output out of 10000 (max. 10000000)
 
