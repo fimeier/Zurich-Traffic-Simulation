@@ -1,4 +1,4 @@
-# MATLAB Fall 2015 – Research Plan
+# MATLAB Fall 2015 – Research Plan (Template)
 (text between brackets to be removed)
 
 > * Group Name: traffic
@@ -12,9 +12,6 @@ The changement will have a big impact for the traffic because there will be one 
 Our goal will be to analize the impact for the traffic in this area and the neigbourhood streets. We want to simulate the highest volume of traffic for this new street situation with one track less.
 
 The question is that we want to know if this changement increase the traffic jam for this area and what is the impact for the neigbourhoodstreets.
-(States your motivation clearly: why is it important / interesting to solve this problem?)
-(Add real-world examples, if any)
-(Put the problem into a historical context, from what does it originate? Are there already some proposed solutions?)
 
 ## The Model
 
@@ -37,7 +34,7 @@ The question which we want to have answered are:
 
 ## Expected Results
 
-(What are the answers to the above questions that you expect to find before starting your research?)
+We expect an increase of traffic jam in the neigbourhood streets. That means the neigbourhood areas will have more traffic pressure than before. 
 
 
 ## References 
