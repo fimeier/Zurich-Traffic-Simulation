@@ -1,4 +1,4 @@
-# MATLAB Fall 2015 – Research Plan (Template)
+# MATLAB Fall 2015 – Research Plan
 (text between brackets to be removed)
 
 > * Group Name: traffic
