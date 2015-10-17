@@ -1,5 +1,5 @@
-# MATLAB Fall 2015 – Research Plan (Template)
-(text between brackets to be removed)
+# MATLAB Fall 2015 – Research Plan 
+
 
 > * Group Name: traffic
 > * Group participants names: Sebastian Honegger, Filip Meier
@@ -15,40 +15,41 @@ The question is that we want to know if this changement increase the traffic jam
 
 ## The Model
 
-We want to simulate the traffic for this area with the four steps of the classical urban transportaion planning system.
-
-The four steps are:
-- Trip generation determines the frequency of origins or destinations of trips in each zone by trip purpose, as a function of land uses and household demographics, and other socio-economic factors.
-- Trip distribution matches origins with destinations, often using a gravity model function, equivalent to an entropy maximizing model. Older models include the fratar model.
-- Mode choice computes the proportion of trips between each origin and destination that use a particular transportation mode. (This modal model may be of the logit form, developed by Nobel Prize winner Daniel McFadden.)
-- Route assignment allocates trips between an origin and destination by a particular mode to a route. Often (for highway route assignment) Wardrop's principle of user equilibrium is applied (equivalent to a Nash equilibrium), wherein each driver (or group) chooses the shortest (travel time) path, subject to every other driver doing the same.The difficulty is that travel times are a function of demand, while demand is a function of travel time, the so-called bi-level problem. Another approach is to use the Stackelberg competition model, where users ("followers") respond to the actions of a "leader", in this case for example a traffic manager. This leader anticipates on the response of the followers.
-
-
+We want to simulate the traffic for this area with the traffic lights. We will work with datalist from the city of zurich, they analized the traffic jam peaks at working days. We are not yet sure which modell is the best for this specific simulation.
+We think to simulate it with:
+- the classical urban transportation planning system
+- Nagel-Schreckenberg-Model
+- others...
 
 ## Fundamental Questions
 
-First of all the goal is for us to understand the classical urban transportation planning system, and that we get a good simulation of the traffic.
+First of all the goal is for us to understand the classical urban transportation planning system/Nagel-Schreckenberg-Model, and that we get a good simulation of the traffic.
 The question which we want to have answered are:
 - Is the street still large enough for highest number of cars per hour?
 - What is the impact to the neigbourhood streets? Traffic jam etc.?
+- Which area or signal light is the bottleneck?
 
 ## Expected Results
 
-We expect an increase of traffic jam in the neigbourhood streets. That means the neigbourhood areas will have more traffic pressure than before. 
+We expect an increase of traffic jam in the neigbourhood streets. That means the neigbourhood areas will have more traffic pressure than before. We also predict that it should give a shift of traffic jam which is depended of the bottle neck. 
 
 
 ## References 
 
 - https://en.wikipedia.org/wiki/Transportation_forecasting
 - https://github.com/GkonosCharalampos/Zurich-Traffic-Group
+- https://de.wikipedia.org/wiki/Nagel-Schreckenberg-Modell
+- www.stadt-zuerich.ch/tiefbauamt
 
 
 
 ## Research Methods
 
-(Cellular Automata, Agent-Based Model, Continuous Modeling...) (If you are not sure here: 1. Consult your colleagues, 2. ask the teachers, 3. remember that you can change it afterwards)
-
+- the classical urban transportation planning system
+- Nagel-Schreckenberg-Model
+- others...
 
 ## Other
 
-(mention datasets you are going to use)
+We will use the dataset from www.stadt-zuerich.ch/tiefbauamt, which gives us the numbers of cars per hour at the traffic jam peaks.
+

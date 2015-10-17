@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.17)  17 OCT 2015 14:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.17)  17 OCT 2015 15:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./reportTemplate.tex
-(./reportTemplate.tex
+**./Report.tex
+(./Report.tex
 LaTeX2e <2015/10/01> patch level 1
 Babel <3.9m> and hyphenation patterns for 79 languages loaded.
 (c:/texlive/2015/texmf-dist/tex/latex/base/article.cls
@@ -205,8 +205,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
-(./reportTemplate.aux)
-\openout1 = `reportTemplate.aux'.
+No file Report.aux.
+\openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -220,7 +220,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -268,15 +267,6 @@ LaTeX Font Info:    ... okay on input line 16.
 \MPnumerator=\count108
 \makeMPintoPDFobject=\count109
 \everyMPtoPDFconversion=\toks23
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 18.
- (c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 18.
-
-(c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./cover.tex
 Package epstopdf Info: Source file: <ETHlogo.eps>
 (epstopdf)                    date: 2015-10-17 10:40:44
@@ -288,14 +278,22 @@ Package epstopdf Info: Source file: <ETHlogo.eps>
 df ETHlogo.eps>
 (epstopdf)             \includegraphics on input line 5.
 Package epstopdf Info: Output file is already uptodate.
-
-<ETHlogo-eps-converted-to.pdf, id=1, 179.67125pt x 45.16875pt>
+ <ETHlogo-eps-converted-to.pdf, id=1, 179.67125pt x 45.16875pt>
 File: ETHlogo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use ETHlogo-eps-converted-to.pdf>
 Package pdftex.def Info: ETHlogo-eps-converted-to.pdf used on input line 5.
 (pdftex.def)             Requested size: 142.26378pt x 35.76698pt.
-) [1
+LaTeX Font Info:    Try loading font information for U+msa on input line 34.
+
+(c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 34.
+
+(c:/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)) [1
 
 {c:/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ETHlogo-eps-c
 onverted-to.pdf>]
@@ -303,14 +301,15 @@ Overfull \hbox (5.3226pt too wide) in paragraph at lines 42--60
  [] 
  []
 
-[2] (./reportTemplate.toc)
+[2]
+No file Report.toc.
 \tf@toc=\write3
-\openout3 = `reportTemplate.toc'.
+\openout3 = `Report.toc'.
 
- [3]
-<pedestrianarea.png, id=19, 276.43275pt x 190.311pt>
+[3] <pedestrianarea.png, id=19, 276.43275pt x 190.311pt>
 File: pedestrianarea.png Graphic file (type png)
- <use pedestrianarea.png>
+
+<use pedestrianarea.png>
 Package pdftex.def Info: pedestrianarea.png used on input line 95.
 (pdftex.def)             Requested size: 193.50076pt x 133.21968pt.
 
@@ -321,20 +320,20 @@ File: Plan_Sihlstrasse.png Graphic file (type png)
 Package pdftex.def Info: Plan_Sihlstrasse.png used on input line 100.
 (pdftex.def)             Requested size: 193.50076pt x 184.04417pt.
  [4 <./pedestrianarea.png> <./Plan_Sihlstrasse.png>]
-[5] (./reportTemplate.aux) ) 
+[5] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 3218 strings out of 493054
- 42523 string characters out of 6138326
- 110010 words of memory out of 5000000
- 6689 multiletter control sequences out of 15000+600000
- 12110 words of font info for 47 fonts, out of 8000000 for 9000
+ 3213 strings out of 493054
+ 42376 string characters out of 6138326
+ 109978 words of memory out of 5000000
+ 6688 multiletter control sequences out of 15000+600000
+ 11803 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,26p,416b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on reportTemplate.pdf (5 pages, 2257003 bytes).
+ 42i,10n,26p,408b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on Report.pdf (5 pages, 2256094 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream
