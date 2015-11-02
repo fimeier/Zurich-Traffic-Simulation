@@ -115,6 +115,79 @@ With our simulation, we want to answered the following questions:
 \end{itemize}
 \section{Description of the Model}
 
+\subsection{Nagel-Schreckenberg-model}
+
+Our model is based on the prototype of cellular automata model which is called \textit{Nagel-Schreckenber-model}. It was developed by Kai Nagel and Michael Schreckenberg in 1992. The basic idea was to split the streets in cells, which contain only one car. Therefore we can identify on cell with the typical required space for one car in a traffic jam. Generally this length is around $7.5\,\mathrm{m}$, which correspond approximately the length of the car and the average distance to the car in front in a traffic jam.
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{ns_config.png}
+\caption{this figure illustrate the typical \textit{Nagel-Schreckenberg-model} configuration: one cell (approx. $7.5\,\mathrm{m}$) which can include exactly one car.}
+\label{ns_config} 
+\end{figure}
+Figure (\ref{ns_config}) shows a typical \textit{Nagel-Schreckenberg-model} set-up, one cell (approx. $7.5\,\mathrm{m}$) which include one car. The number in the upper right corner of the cell (which include a car) representing the actual velocity $v_n$ of the car $n$. The velocity is a discrete value an we assume that the car $n$ can have the velocities $v_n=0,1 \ldots ,v_{\mathrm{max}}$. Every car has the same $v_{\mathrm{max}}$ which has the same effect like a speed limit.\\
+With this properties one have a good description of the state of the street at time $t$. The next step is to define the development in time. So we have to define the state of the street at the time $t+1$. To simulate this time step in the \textit{Nagel-Schreckenberg-model} we have to define for steps, which we have to apply for each car $n$:
+\begin{itemize}
+\item[1.]	\textbf{Acceleration}\\
+\\
+If $v_n<v_{\mathrm{max}}$ at time $t$, the car $n$ will accelerate is velocity about one unit:
+\begin{equation}
+v_n \rightarrow v'_n = \min(v_n+1,v_\mathrm{max})
+\label{accel}
+\end{equation}
+$v'_n$ represents the new velocity at time $t+1$.
+\item[2.]  \textbf{Slow down}\\
+\\
+We define $d_n$ as the number of empty cells in front of the car $n$ until to the next car $n+1$. So if $d_n$ is smaller than $v'_n$, the car $n$ has to slow down to the velocity $d_n$:
+\begin{equation}
+v'_n \rightarrow v''_n = \min(v_n',d_n)
+\label{slowd}
+\end{equation}
+\item[3.]  \textbf{Hang behind}\\
+\\
+If $v''_n>0$, the velocity of car $n$ will be randomly with the probability $p$ reduced about one unit:
+\begin{equation}
+v''_n \rightarrow v'''_n=
+\begin{cases}
+\max(v''_n-1,0) & \mathrm{with\,probability} \quad p\\
+v''_n & \mathrm{with\,probability} \quad 1-p
+\end{cases}
+\label{hangb}
+\end{equation}
+\item[4.] \textbf{Drive}\\
+\\
+The car $n$ drives with the new velocity $v_n(t+1)=v'''_n$ about $v_n(t+1)$ cells:
+\begin{equation}
+x_n(t+1)=x_n(t)+v_n(t+1)
+\label{drive}
+\end{equation}
+\end{itemize}
+One have to apply every step simultaneous to every car. So we can not simulate the real situation, that the car in front can move as well simultaneous to the car behind.
+\\
+One can see that just step (\ref{slowd}) has a interaction between cars and with step (\ref{hangb}) the simulations has a stochastic  dynamic. Therefore the \textit{Nagel-Schreckenberg-model} is called a stochastic cellular automata.
+\\
+\begin{figure}[h!]
+\begin{itemize}
+\item[1.] \textbf{start configuration} \\
+\includegraphics[width=\textwidth]{config_1.png}
+\item[2.] \textbf{acceleration} ($v_{\mathrm{max}}=2$) \\
+\includegraphics[width=\textwidth]{config_2.png}
+\item[3.] \textbf{slow down} \\
+\includegraphics[width=\textwidth]{config_3.png}
+\item[4.] \textbf{hang behind} ($p=\frac{1}{3}$) \\
+\includegraphics[width=\textwidth]{config_4.png}
+\item[4.] \textbf{drive} ($=$ configuration at $t+1$) \\
+\includegraphics[width=\textwidth]{config_5.png}
+\end{itemize}
+\caption{Shows on complete time step of the \textit{Nagel-Schreckenberg-model} with acceleration, slow down, hang behind probability and drive.}
+\label{example_ns} 
+\end{figure}
+Figure (\ref{example_ns}) shows a complete time step of the \textit{Nagel-Schreckenberg-model}. In this case in step 4 we have three car which are able to hang behind but just one will to it in the next step (probability $p=\frac{1}{3}$). And as one can see the speed limit in this example is $v_\mathrm{max}=2$.
+\begin{itemize}
+\item[1.] The first step in figure \ref{example_ns} shows that all cars want to accelerate as soon as possible to maximum speed limit.
+\item[2.] the 'slow down' step (figure \ref{example_ns} prevent car accidents. But as mention before it does not include the movement of the car in front at the same time.
+\item[3.] 
+\end{itemize}
+
+
 \section{Implementation}
 
 \section{Simulation Results and Discussion}

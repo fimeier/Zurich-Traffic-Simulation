@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.17)  17 OCT 2015 15:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/W32TeX) (preloaded format=pdflatex 2015.10.17)  31 OCT 2015 13:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -204,8 +204,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
-)
-No file Report.aux.
+) (./Report.aux)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -220,6 +219,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -269,10 +269,10 @@ LaTeX Font Info:    ... okay on input line 16.
 \everyMPtoPDFconversion=\toks23
 ) (./cover.tex
 Package epstopdf Info: Source file: <ETHlogo.eps>
-(epstopdf)                    date: 2015-10-17 10:40:44
+(epstopdf)                    date: 2015-10-17 09:40:44
 (epstopdf)                    size: 179075 bytes
 (epstopdf)             Output file: <ETHlogo-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-10-17 14:10:44
+(epstopdf)                    date: 2015-10-17 13:10:44
 (epstopdf)                    size: 14362 bytes
 (epstopdf)             Command: <repstopdf --outfile=ETHlogo-eps-converted-to.p
 df ETHlogo.eps>
@@ -301,12 +301,11 @@ Overfull \hbox (5.3226pt too wide) in paragraph at lines 42--60
  [] 
  []
 
-[2]
-No file Report.toc.
+[2] (./Report.toc)
 \tf@toc=\write3
 \openout3 = `Report.toc'.
 
-[3] <pedestrianarea.png, id=19, 276.43275pt x 190.311pt>
+ [3] <pedestrianarea.png, id=19, 276.43275pt x 190.311pt>
 File: pedestrianarea.png Graphic file (type png)
 
 <use pedestrianarea.png>
@@ -320,23 +319,115 @@ File: Plan_Sihlstrasse.png Graphic file (type png)
 Package pdftex.def Info: Plan_Sihlstrasse.png used on input line 100.
 (pdftex.def)             Requested size: 193.50076pt x 184.04417pt.
  [4 <./pedestrianarea.png> <./Plan_Sihlstrasse.png>]
-[5] (./Report.aux) ) 
+<ns_config.png, id=27, 507.39563pt x 71.66776pt>
+File: ns_config.png Graphic file (type png)
+ <use ns_config.png>
+Package pdftex.def Info: ns_config.png used on input line 122.
+(pdftex.def)             Requested size: 430.00462pt x 60.73853pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 129--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--140
+
+ []
+
+[5 <./ns_config.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 144--147
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--158
+
+ []
+
+<config_1.png, id=40, 377.61075pt x 62.93512pt>
+File: config_1.png Graphic file (type png)
+ <use config_1.png>
+Package pdftex.def Info: config_1.png used on input line 170.
+(pdftex.def)             Requested size: 430.00462pt x 71.66994pt.
+
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 169--171
+[] 
+ []
+
+<config_2.png, id=41, 380.92313pt x 61.4295pt>
+File: config_2.png Graphic file (type png)
+ <use config_2.png>
+Package pdftex.def Info: config_2.png used on input line 172.
+(pdftex.def)             Requested size: 430.00462pt x 69.34702pt.
+
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 171--173
+[] 
+ []
+
+<config_3.png, id=42, 382.72987pt x 59.62276pt>
+File: config_3.png Graphic file (type png)
+ <use config_3.png>
+Package pdftex.def Info: config_3.png used on input line 174.
+(pdftex.def)             Requested size: 430.00462pt x 66.989pt.
+
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 173--175
+[] 
+ []
+
+<config_4.png, id=43, 379.11638pt x 60.82726pt>
+File: config_4.png Graphic file (type png)
+ <use config_4.png>
+Package pdftex.def Info: config_4.png used on input line 176.
+(pdftex.def)             Requested size: 430.00462pt x 68.99573pt.
+
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 175--177
+[] 
+ []
+
+<config_5.png, id=44, 378.51413pt x 61.12837pt>
+File: config_5.png Graphic file (type png)
+ <use config_5.png>
+Package pdftex.def Info: config_5.png used on input line 178.
+(pdftex.def)             Requested size: 430.00462pt x 69.44547pt.
+
+Overfull \hbox (27.37506pt too wide) in paragraph at lines 177--179
+[] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6]
+Overfull \vbox (84.21747pt too high) has occurred while \output is active []
+
+
+[7 <./config_1.png> <./config_2.png> <./config_3.png> <./config_4.png> <./confi
+g_5.png>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 3213 strings out of 493054
- 42376 string characters out of 6138326
- 109978 words of memory out of 5000000
- 6688 multiletter control sequences out of 15000+600000
- 11803 words of font info for 46 fonts, out of 8000000 for 9000
+ 3264 strings out of 493054
+ 43112 string characters out of 6138326
+ 115026 words of memory out of 5000000
+ 6727 multiletter control sequences out of 15000+600000
+ 14359 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,10n,26p,408b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
-<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmbx12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on Report.pdf (5 pages, 2256094 bytes).
+ 42i,10n,26p,550b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr12.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr17.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb><c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+<c:/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Report.pdf (7 pages, 2497990 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
