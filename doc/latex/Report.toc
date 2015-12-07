@@ -6,6 +6,8 @@
 \contentsline {subsection}{\numberline {5.1}Nagel-Schreckenberg-model}{5}
 \contentsline {subsection}{\numberline {5.2}Chowdhury-Schadschneider-Modell}{8}
 \contentsline {section}{\numberline {6}Implementation}{9}
-\contentsline {section}{\numberline {7}Simulation Results and Discussion}{9}
-\contentsline {section}{\numberline {8}Summary and Outlook}{9}
-\contentsline {section}{\numberline {9}References}{9}
+\contentsline {subsection}{\numberline {6.1}Chowdhury-Schadschneider-Model-implementation}{10}
+\contentsline {subsection}{\numberline {6.2}Main simulation}{11}
+\contentsline {section}{\numberline {7}Simulation Results and Discussion}{11}
+\contentsline {section}{\numberline {8}Summary and Outlook}{11}
+\contentsline {section}{\numberline {9}References}{11}

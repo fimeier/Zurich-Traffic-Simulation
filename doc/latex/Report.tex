@@ -9,8 +9,8 @@
 \usepackage{amssymb, amsmath}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 
-%\title{Title}
-%\author{Name 1, Name 2}
+%\title{Zurich traffic simulation Sihlstrasse/Uraniastrasse}
+%\author{Filip Meier, Sebastian Honegger}
 %\date{date} 
 
 \begin{document}
@@ -45,7 +45,7 @@
 \end{minipage}
 &
 \begin{minipage}{6cm}
-\vspace{2mm} \large Name 1
+\vspace{2mm} \large Filip Meier
 
  \vspace{\baselineskip}
 
@@ -53,7 +53,7 @@
 &
 \begin{minipage}{6cm}
 
-\large Name 2
+\large Sebastian Honegger
 
 \end{minipage}
 \end{tabular}
@@ -102,7 +102,7 @@ The city of Zurich planing to change one specific part of the sihlstrasse in a p
 \caption{right: situation plan which shows the change of the tracks. left: illustraion of the pedestrian area at sihlstrasse.}
 \end{figure}
 \\
-The changet will have a big impact for the traffic because there will be one track less than before. Sihlstrasse (from west to east) and Uraniastrasse (from east to west) is one of the most travelled  road in the city center. It is the only alternative road to the highway (Westumfarung). If they decide to built a pedestrian area in the sihlstrasse they will lose one track from west to east.
+The change will have a big impact for the traffic because there will be one track less than before. Sihlstrasse (from west to east) and Uraniastrasse (from east to west) is one of the most travelled  road in the city center. It is the only alternative road to the highway (Westumfarung). If they decide to built a pedestrian area in the sihlstrasse they will lose one track from west to east.
 We know want to analyse the impact to the traffic jam and the impact on the neighbourhood streets.
 
 \section{Fundamental Questions}
@@ -141,7 +141,7 @@ We define $d_n$ as the number of empty cells in front of the car $n$ until to th
 v'_n \rightarrow v''_n = \min(v_n',d_n)
 \label{slowd}
 \end{equation}
-\item[3.]  \textbf{Hang behind}\\
+\item[3.]  \textbf{Randomization}\\
 \\
 If $v''_n>0$, the velocity of car $n$ will be randomly with the probability $p$ reduced about one unit:
 \begin{equation}
@@ -162,8 +162,7 @@ x_n(t+1)=x_n(t)+v_n(t+1)
 \end{itemize}
 One have to apply every step simultaneous to every car. So we can not simulate the real situation, that the car in front can move as well simultaneous to the car behind.
 \\
-One can see that just step (\ref{slowd}) has a interaction between cars and with step (\ref{hangb}) the simulations has a stochastic  dynamic. Therefore the \textit{Nagel-Schreckenberg-model} is called a stochastic cellular automata.
-\\
+One can see that just step (\ref{slowd}) has a interaction between cars and with step (\ref{hangb}) the simulations has a stochastic  dynamic. Therefore the \textit{Nagel-Schreckenberg-model} is called a stochastic cellular automata.\\
 \begin{figure}[h!]
 \begin{itemize}
 \item[1.] \textbf{start configuration} \\
@@ -172,23 +171,22 @@ One can see that just step (\ref{slowd}) has a interaction between cars and with
 \includegraphics[width=\textwidth]{config_2.png}
 \item[3.] \textbf{slow down} \\
 \includegraphics[width=\textwidth]{config_3.png}
-\item[4.] \textbf{hang behind} ($p=\frac{1}{3}$) \\
+\item[4.] \textbf{Randomization} ($p=\frac{1}{3}$) \\
 \includegraphics[width=\textwidth]{config_4.png}
 \item[4.] \textbf{drive} ($=$ configuration at $t+1$) \\
 \includegraphics[width=\textwidth]{config_5.png}
 \end{itemize}
 \caption{Shows on complete time step of the \textit{Nagel-Schreckenberg-model} with acceleration, slow down, hang behind probability and drive.}
 \label{example_ns} 
-\end{figure}
+\end{figure}\\
 Figure (\ref{example_ns}) shows a complete time step of the \textit{Nagel-Schreckenberg-model}. In this case in step 4 we have three car which are able to hang behind but just one will to it in the next step (probability $p=\frac{1}{3}$). And as one can see the speed limit in this example is $v_\mathrm{max}=2$.
 \begin{itemize}
 \item[1.] The first step in figure \ref{example_ns} shows that all cars want to accelerate as soon as possible to maximum speed limit.
 \item[2.] the 'slow down' step (figure \ref{example_ns} prevent car accidents. But as mention before it does not include the movement of the car in front at the same time.
-\item[3.] The step hang behind simulates different effects. It tries to modelling for example natural fluctuations in driving style. A normal car drives never with a total constant speed it always fluctuate between $v_\mathrm{max}$ und $v_\mathrm{max}-1$. This function generates an asymmetry for the acceleration and the slow down mode. In detail it will generate a stronger slow down and sometimes the speed stays constant instead to accelerate. If we have a high density of cars, the above described effects could have a traffic jam as result.
+\item[3.] The step Randomization simulates different effects. It tries to modelling for example natural fluctuations in driving style. A normal car drives never with a total constant speed it always fluctuate between $v_\mathrm{max}$ und $v_\mathrm{max}-1$. This function generates an asymmetry for the acceleration and the slow down mode. In detail it will generate a stronger slow down and sometimes the speed stays constant instead to accelerate. If we have a high density of cars, the above described effects could have a traffic jam as result.
 \item[4.] The last step is just the motion of the cars with the new speed which is compute with the steps 1 to 3.
 
 \end{itemize}
-
 We already defined the length of one cell ($7.5\,\mathrm{m}$) but we also have to define the correct time scale fpr one time step $t$ $\rightarrow$ $t+1$. Therefore we need a value for the average speed, one can calculate it in the following way:\\
 
 \begin{equation}
@@ -225,6 +223,7 @@ v'_n \rightarrow \min(v_n,d_n,s_n)
 \item[a.] The traffic light get red in the next time step:
 \begin{equation}
 v'_n \rightarrow \min(v_n,d_n,s_n)
+\label{min_lights}
 \end{equation}
 \item[b.] The traffic light is not getting red:
 \begin{equation}
@@ -233,7 +232,7 @@ v'_n \rightarrow \min(v_n,d_n)
 \end{itemize}
 
 \end{itemize}
-\item[3.]  \textbf{Hang behind}\\
+\item[3.]  \textbf{Randomization}\\
 \\
 If $v''_n>0$, the velocity of car $n$ will be randomly with the probability $p$ reduced about one unit:
 \begin{equation}
@@ -256,6 +255,24 @@ The simulations is exactly like the \textit{Nagel-Schreckenberg-model} just the 
 If the traffic light is green we can simulate a kind of orange phase. If the traffic light gets red in the next step, the cars will slow down immediately. If the traffic light not get red the simulation will just look on the distance to the next car.
 
 \section{Implementation}
+
+We started with the simple implementation of the \textit{Chowdhury-Schadschneider-Model}. We made a main-script in which we define all global parameter as for example the maximum speed.\\
+\subsection{Chowdhury-Schadschneider-Model-implementation}
+For the different steps in the \textit{Nagel-Schreckenberg-model} we defined one function for each step, figure \ref{accel} for example shows the acceleration function.\\
+For this function we just use the minima function of matlab. Input is the current velocity $v_n$ of the car and the maximum velocity $v_\mathrm{max}$.
+\begin{figure}[h]
+	\centering
+\includegraphics[width=\textwidth]{accel-code.png}
+\label{accel}
+\end{figure}
+The most difficult function is the slow down function were we have to implement the two slow down reasons: the next traffic light or the next car. For the distance to the next car $d_n$ we defined first $d_n=0$ and then we implemented a loop over the length of the whole street to check where the next car is located.\\
+For the traffic lights we made in a similar way. First of all we have to check which traffic light is the next one in front of the car. Then we can analyse the traffic light: is it currently green or red and is it going to be red in the next step. If it is green we can ignore it, therefore we set $s_n$ , which is the distance to the next traffic light, to a high value. Like this it will not influence the car in the next time steps. If it is red we have to compute the exact value for $s_n$.\\
+Finally we get the values for $d_n$ and $s_n$. Now we just can define the minima of $v_n$, $d_n$ and $s_n$ as mention in equation \ref{min_lights}. This will be the value of our output of the slow down function.\\
+For the probability function we used simply the function rand from matlab, which define randomly a number between $0$ and $1$ and then we just can define a probability $p$ and an if command.\\
+\subsection{Main simulation}
+
+First of all we have to define the streets through an array. One cell represents around $7.5\,\mathrm{m}$ and can be occupied only by one car. When then define the location of the cells where the traffic lights are placed. Therefore we used a second array which has the information of the location for the different traffic lights and the current status (green or red). We measured the whole street and the locations of the traffic lights in google maps.\\
+
 
 \section{Simulation Results and Discussion}
 

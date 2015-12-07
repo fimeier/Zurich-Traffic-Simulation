@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>test</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-10-25"><meta name="DC.source" content="test.m"><style type="text/css">
+      --><title>test</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2015-11-30"><meta name="DC.source" content="test.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,110 +66,228 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%function M_plot = test()</span>
-<span class="comment">%Map generieren</span>
-<span class="comment">%%Datenstruktur</span>
-<span class="comment">%Map[i]=v, wobei v Geschwindigkeit Auto, falls v != free_road</span>
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">west direction</a></li><li><a href="#3">east direction</a></li></ul></div><pre class="codeinput"><span class="comment">%clear Workspace</span>
+clear
+
+<span class="comment">%globale Parameter</span>
+steps = 200; <span class="comment">%Number of timesteps in the simulation</span>
+free_road = 255; <span class="comment">%value for empty street</span>
+v_max = 5; <span class="comment">%maximal speed in the model</span>
+rho = 0.3; <span class="comment">% hang_behind Parameter</span>
+
+<span class="comment">%Datenstruktur der Simulation initialisieren</span>
+<span class="comment">%Richtung Osten</span>
+[traffic_light_o, Map_o, map_size_o, car_count_o] = simulation_sihlstrasse( v_max, free_road );
+
+<span class="comment">%Richtung Westen</span>
+[traffic_light_w, Map_w, map_size_w, car_count_w] = simulation_uraniastrasse( v_max, free_road );
 
 
-map_size = 200;
-free_road = 255;
-v_max = 5;
-rho = 0.5;
+<span class="comment">%change_traffic_light</span>
+<span class="comment">%function to change the above traffic lights</span>
+<span class="comment">%input step=i</span>
+<span class="comment">%tbd... sollte eine Funktion zuweisen</span>
+<span class="comment">%change_traffic_light = change_traffic_light_test(traffic_light, i);</span>
 
-<span class="comment">%0=red, 1=green</span>
-traffic_light = [   40, 80, 120, 160;
-                    1,  1,  1, 1 ];
+<span class="comment">%Data structure for simulation steps</span>
+<span class="comment">% two rows represents a timestep (one map update)</span>
+<span class="comment">% the first (map_size)-colums represents the street, the last two stands</span>
+<span class="comment">% for the car_counter on the two streets</span>
+M_o = [Map_o,[car_count_o;car_count_o]];
+<span class="comment">%same for west direction</span>
+M_w = [Map_w,[car_count_w;car_count_w]];
 
-car_count = 70;
-steps = 200;
+<span class="comment">%T Debuggingdatenstruktur</span>
+<span class="comment">%T enth&auml;lt den Zustand der einzelnen traffic_lights in der row-i zum Zeitschritt i</span>
+T_o = [];
 
-<span class="comment">%Map generieren</span>
-Map = create_map_and_cars(map_size, free_road, car_count, v_max);
+<span class="comment">%east direction</span>
+<span class="comment">%Anzahl Autos in der Warteschlange</span>
+Warteschlange_Sihlstrasse = 0;
+Warteschlange_Annagasse = 0;
+<span class="comment">%Anzahl der generierten Autos</span>
+Input_Count_Sihlstrasse = 0;
+Input_Count_Annagasse = 0;
+
+<span class="comment">%west direction</span>
+<span class="comment">%Anzahl Autos in der Warteschlange</span>
+Warteschlange_Bahnhofquai = 0;
+<span class="comment">%Anzahl der generierten Autos</span>
+Input_Count_Bahnhofquai = 0;
 
 
-T = traffic_light;
-<span class="comment">%T = [T; traffic_light(2,:)];</span>
-M = [Map,car_count];
+<span class="comment">%run the simulation for east direction</span>
 <span class="keyword">for</span> i = 1:steps
-    New_Map = map_update(M(end,:), map_size, free_road, v_max, rho, traffic_light);
-    New_Map = add_one_car(New_Map, free_road);
-    car_counter = 0;
-    <span class="keyword">for</span> k = New_Map
-        <span class="keyword">if</span> ( k ~= free_road )
-            car_counter = 1 + car_counter;
+</pre><h2>west direction<a name="2"></a></h2><pre class="codeinput">    <span class="comment">%Update the Map</span>
+    New_Map = map_update(M_w(end-1:end,:), map_size_w, free_road, v_max, rho, traffic_light_w);
+    <span class="comment">%Zufluss zum System zu steuern</span>
+    [New_Map, Warteschlange_Bahnhofquai, Input_Count_Bahnhofquai] = input_bahnhofquai(New_Map, i, Warteschlange_Bahnhofquai, Input_Count_Bahnhofquai, free_road);
+    <span class="comment">%Abfl&uuml;sse</span>
+    New_Map = output_sihlstrasse(New_Map, i, free_road);
+    <span class="comment">%count all cars on the street</span>
+    car_counter = [0;0];
+    <span class="keyword">for</span> street = 1:2
+        <span class="keyword">for</span> k = New_Map(street,:)
+            <span class="keyword">if</span> ( k ~= free_road )
+                car_counter(street) = 1 + car_counter(street);
+            <span class="keyword">end</span>
         <span class="keyword">end</span>
     <span class="keyword">end</span>
+    <span class="comment">%f&uuml;gt aktuellen car_counter der Datenstruktur hinzu</span>
     New_Map = [New_Map, car_counter];
+</pre><h2>east direction<a name="3"></a></h2><pre class="codeinput">    <span class="comment">%Update the Map</span>
+    New_Map = map_update(M_o(end-1:end,:), map_size_o, free_road, v_max, rho, traffic_light_o);
 
-    M = [M;New_Map];
+    <span class="comment">%Zufluss zum System zu steuern</span>
+    [New_Map, Warteschlange_Sihlstrasse, Input_Count_Sihlstrasse] = input_sihlstrasse(New_Map, i, Warteschlange_Sihlstrasse, Input_Count_Sihlstrasse, free_road);
+    [New_Map, Warteschlange_Annagasse, Input_Count_Annagasse] = input_annagasse(New_Map, i, Warteschlange_Annagasse, Input_Count_Annagasse, free_road);
 
-     M_plot = New_Map;
-     Street( M_plot );
+    <span class="comment">%Abfl&uuml;sse</span>
+    New_Map = output_bahnhofquai(New_Map, i, free_road);
+
+    <span class="comment">%Debuging etc</span>
+    <span class="comment">%count all cars on the street</span>
+    car_counter = [0;0];
+    <span class="keyword">for</span> street = 1:2
+        <span class="keyword">for</span> k = New_Map(street,:)
+            <span class="keyword">if</span> ( k ~= free_road )
+                car_counter(street) = 1 + car_counter(street);
+            <span class="keyword">end</span>
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+    <span class="comment">%f&uuml;gt aktuellen car_counter der Datenstruktur hinzu</span>
+    New_Map = [New_Map, car_counter];
+    <span class="comment">%f&uuml;gt aktuelle Map der Datenstruktur M hinzu</span>
+    M_o = [M_o;New_Map];
+    <span class="comment">%Debugin Plot: jeden Step grafisch anzeigen</span>
+     <span class="comment">%M_plot = New_Map;</span>
+     <span class="comment">%visualization_test( M_plot );</span>
+    <span class="comment">%Debuggingdatenstruktur mit aktuellem Zustand der traffic_lights f&uuml;llen</span>
+    T_o = [T_o; traffic_light_o(2,:)];
 
 
-    traffic_light = change_traffic_light(traffic_light, i);
-    T = [T; traffic_light(2,:)];
-<span class="keyword">end</span>
+    <span class="comment">%change traffic_lights for next timestep</span>
+    traffic_light_w = change_traffic_light_sihl_uraniastrasse(traffic_light_w, i);
+    traffic_light_o = change_traffic_light_sihl_uraniastrasse(traffic_light_o, i);
+</pre><pre class="codeinput"><span class="keyword">end</span>
 
-M_plot = M(:,1:(end-1));
-
-Street( M_plot );
-
-<span class="comment">%end</span>
-</pre><img vspace="5" hspace="5" src="test_01.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+<span class="comment">%Ausgabe erstellen</span>
+rgb_Matrix = visualization_test( M_o );
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
-%function M_plot = test()
-%Map generieren
-%%Datenstruktur
-%Map[i]=v, wobei v Geschwindigkeit Auto, falls v != free_road
+%clear Workspace
+clear
+
+%globale Parameter
+steps = 200; %Number of timesteps in the simulation
+free_road = 255; %value for empty street
+v_max = 5; %maximal speed in the model
+rho = 0.3; % hang_behind Parameter
+
+%Datenstruktur der Simulation initialisieren
+%Richtung Osten
+[traffic_light_o, Map_o, map_size_o, car_count_o] = simulation_sihlstrasse( v_max, free_road );
+ 
+%Richtung Westen
+[traffic_light_w, Map_w, map_size_w, car_count_w] = simulation_uraniastrasse( v_max, free_road );
 
 
-map_size = 200;
-free_road = 255;
-v_max = 5;
-rho = 0.5;
+%change_traffic_light
+%function to change the above traffic lights
+%input step=i
+%tbd... sollte eine Funktion zuweisen
+%change_traffic_light = change_traffic_light_test(traffic_light, i);
 
-%0=red, 1=green
-traffic_light = [   40, 80, 120, 160;
-                    1,  1,  1, 1 ];
+%Data structure for simulation steps
+% two rows represents a timestep (one map update)
+% the first (map_size)-colums represents the street, the last two stands
+% for the car_counter on the two streets
+M_o = [Map_o,[car_count_o;car_count_o]];
+%same for west direction
+M_w = [Map_w,[car_count_w;car_count_w]];
 
-car_count = 70;
-steps = 200;
+%T Debuggingdatenstruktur
+%T enthält den Zustand der einzelnen traffic_lights in der row-i zum Zeitschritt i
+T_o = [];
 
-%Map generieren
-Map = create_map_and_cars(map_size, free_road, car_count, v_max);
+%east direction
+%Anzahl Autos in der Warteschlange
+Warteschlange_Sihlstrasse = 0;
+Warteschlange_Annagasse = 0;
+%Anzahl der generierten Autos
+Input_Count_Sihlstrasse = 0;
+Input_Count_Annagasse = 0;
+
+%west direction
+%Anzahl Autos in der Warteschlange
+Warteschlange_Bahnhofquai = 0;
+%Anzahl der generierten Autos
+Input_Count_Bahnhofquai = 0;
 
 
-T = traffic_light;
-%T = [T; traffic_light(2,:)];
-M = [Map,car_count];
+%run the simulation for east direction
 for i = 1:steps
-    New_Map = map_update(M(end,:), map_size, free_road, v_max, rho, traffic_light);
-    New_Map = add_one_car(New_Map, free_road);
-    car_counter = 0;
-    for k = New_Map
-        if ( k ~= free_road )
-            car_counter = 1 + car_counter;
+%% west direction
+    %Update the Map
+    New_Map = map_update(M_w(end-1:end,:), map_size_w, free_road, v_max, rho, traffic_light_w);
+    %Zufluss zum System zu steuern
+    [New_Map, Warteschlange_Bahnhofquai, Input_Count_Bahnhofquai] = input_bahnhofquai(New_Map, i, Warteschlange_Bahnhofquai, Input_Count_Bahnhofquai, free_road);
+    %Abflüsse
+    New_Map = output_sihlstrasse(New_Map, i, free_road);
+    %count all cars on the street
+    car_counter = [0;0];
+    for street = 1:2
+        for k = New_Map(street,:)
+            if ( k ~= free_road )
+                car_counter(street) = 1 + car_counter(street);
+            end
         end
     end
+    %fügt aktuellen car_counter der Datenstruktur hinzu
     New_Map = [New_Map, car_counter];
     
-    M = [M;New_Map];
     
-     M_plot = New_Map;
-     Street( M_plot );
-
+%% east direction
+    %Update the Map
+    New_Map = map_update(M_o(end-1:end,:), map_size_o, free_road, v_max, rho, traffic_light_o);
+   
+    %Zufluss zum System zu steuern
+    [New_Map, Warteschlange_Sihlstrasse, Input_Count_Sihlstrasse] = input_sihlstrasse(New_Map, i, Warteschlange_Sihlstrasse, Input_Count_Sihlstrasse, free_road);
+    [New_Map, Warteschlange_Annagasse, Input_Count_Annagasse] = input_annagasse(New_Map, i, Warteschlange_Annagasse, Input_Count_Annagasse, free_road);
     
-    traffic_light = change_traffic_light(traffic_light, i);
-    T = [T; traffic_light(2,:)];
+    %Abflüsse
+    New_Map = output_bahnhofquai(New_Map, i, free_road);
+    
+    %Debuging etc
+    %count all cars on the street
+    car_counter = [0;0];
+    for street = 1:2
+        for k = New_Map(street,:)
+            if ( k ~= free_road )
+                car_counter(street) = 1 + car_counter(street);
+            end
+        end
+    end
+    %fügt aktuellen car_counter der Datenstruktur hinzu
+    New_Map = [New_Map, car_counter];
+    %fügt aktuelle Map der Datenstruktur M hinzu
+    M_o = [M_o;New_Map];
+    %Debugin Plot: jeden Step grafisch anzeigen
+     %M_plot = New_Map;
+     %visualization_test( M_plot );
+    %Debuggingdatenstruktur mit aktuellem Zustand der traffic_lights füllen
+    T_o = [T_o; traffic_light_o(2,:)];
+    
+    
+    %change traffic_lights for next timestep
+    traffic_light_w = change_traffic_light_sihl_uraniastrasse(traffic_light_w, i);
+    traffic_light_o = change_traffic_light_sihl_uraniastrasse(traffic_light_o, i);
 end
 
-M_plot = M(:,1:(end-1));
+%Ausgabe erstellen
+rgb_Matrix = visualization_test( M_o );
 
-Street( M_plot );
 
-%end
 
 
     
