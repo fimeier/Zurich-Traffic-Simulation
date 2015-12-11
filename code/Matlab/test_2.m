@@ -1,12 +1,12 @@
-function [West_direction, East_direction] = test(x_w, x_o, modus)
+function [West_direction, East_direction] = test_2(x_w, x_o, modus)
 
 %clear Workspace
-%   clear
-%   x_w = 1000;
-%   x_o = 1000;
-% 
-
-%   modus = [2,2];
+%    clear
+%    x_w = 1000;
+%    x_o = 1000;
+% % 
+% % % % %modus = [w_modus, e_modus];
+%    modus = [2,1];
 
 %globale Parameter
 steps = 1470; %Number of timesteps in the simulation
@@ -16,14 +16,14 @@ rho = 0.3; % hang_behind Parameter
 
 output_w_h = 600;
 output_o_h = 600;
+
 w_modus = modus(1);
 e_modus = modus(2);
 
 
-
 %Datenstruktur der Simulation initialisieren
 %Richtung Osten
-[traffic_light_o, M_o, map_size_o] = simulation_sihlstrasse( v_max, free_road, e_modus );
+[traffic_light_o, M_o, map_size_o] = simulation_sihlstrasse_one_line( v_max, free_road, e_modus );
 trafficlight_t_o=15;
 redlight_t_o=4;
  
@@ -69,7 +69,6 @@ Warteschlange_out_Sihlstrasse = 0;
 Input_Count_Bahnhofquai = 0;
 %Anzahl gelöschter Autos
 Output_Count_Sihlstrasse = 0;
-
 
 
 %run the simulation for east direction
@@ -128,10 +127,9 @@ for i = 1:steps
     New_Map = [New_Map, car_counter_o];
     %fügt aktuelle Map der Datenstruktur M hinzu
     M_o = [M_o;New_Map];
-    
     %Debugin Plot: jeden Step grafisch anzeigen
-    %M_plot = New_Map;
-    %visualization_test( M_plot );
+    % M_plot = New_Map;
+    % visualization_test( M_plot );
     %Debuggingdatenstruktur mit aktuellem Zustand der traffic_lights füllen
     T_o = [T_o; traffic_light_o(2,:)];
     
@@ -149,16 +147,16 @@ end
 M_w = M_w(:,2:(end-1));
 M_o = M_o(:,2:(end-1));
 
+
 subplot(2,1,1)
 rgb_Matrix_w = visualization_test( fliplr(M_w) );
-title('Current status west-direction: Bahnhofquai->Sihlstrasse')
+title('New status west-direction: Bahnhofquai->Sihlstrasse')
  
 subplot(2,1,2)
 rgb_Matrix_o = visualization_test( M_o );
-title('Current status east-direction: Sihlstrasse->Bahnhofquai')
+title('New status east-direction One-Lane: Sihlstrasse->Bahnhofquai')
+
 hold off
-
-
 
 
 %%Output Daten

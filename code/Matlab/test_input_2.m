@@ -10,10 +10,10 @@ n = length(IBQ);
 
 
 %x_modus == place cars on 1 or 2 lanes
-e_modus = 2;
+e_modus = 1;
 w_modus = 2;
 modus = [w_modus, e_modus];
-
+ 
 
 %simulation mit der nötigen Anzahl Autos starten
 %West_direction = [Input_Count_Bahnhofquai, Warteschlange_Bahnhofquai, Output_Count_Sihlstrasse, car_counter_w(1,1), car_counter_w(2,1)];
@@ -21,36 +21,30 @@ modus = [w_modus, e_modus];
 WD = [];
 ED = [];
 for i = 1:n
-   i
-    [West_direction, East_direction] = test(IBQ(i), ISS(i), modus);
+    i
+    [West_direction, East_direction] = test_2(IBQ(i), ISS(i), modus);
     %           Input_Count,        Warteschlange
     WD = [WD; West_direction(1), West_direction(2)];
     ED = [ED; East_direction(1), East_direction(2)];
     
 end
 
-
-results=figure;
+figure
 
 subplot(2,1,1)
+plot( 0:length(IBQ)-1, WD(:,2)','--','linewidth',2 );
 
-plot( [0:length(IBQ)-1], WD(:,2)','--','linewidth',2 );
-xlim([0,length(IBQ)-1]);
-title('Current status west-direction: Bahnhofquai->Sihlstrasse')
+title('New status west-direction: Bahnhofquai->Sihlstrasse')
 xlabel('time of day')
 ylabel('Traffic jam ahead traffic light')
  
 subplot(2,1,2)
-plot( [0:length(ISS)-1], ED(:,2)','--','linewidth',2); 
-xlim([0,length(ISS)-1]);
-title('Current status east-direction: Sihlstrasse->Bahnhofquai')
+plot( 0:length(ISS)-1, ED(:,2)','--','linewidth',2); 
+title('New status east-direction: Sihlstrasse->Bahnhofquai')
 xlabel('time of day')
 ylabel('Traffic jam ahead traffic light')
 
 hold off
-
-
-
 
 
 

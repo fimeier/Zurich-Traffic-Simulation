@@ -1,9 +1,9 @@
 
 
 %Input Bahnhofquai, Werte gemäss Zählstelle und Extrem Wert
-IBQ = [100:50:1000];%[154,116,91,71,84,184,483,745,817,782,762,773,729,754,804,807,855,892,852,653,484,398,388,313];
+IBQ = [154,116,91,71,84,184,483,745,817,782,762,773,729,754,804,807,855,892,852,653,484,398,388,313];
 %Input Sihlstrasse, Werte gemäss Zählstelle
-ISS = [100:50:1000];%[115,74,52,46,51,128,508,719,698,656,691,706,607,652,704,732,746,751,729,559,397,335,325,247];
+ISS = [115,74,52,46,51,128,508,719,698,656,691,706,607,652,704,732,746,751,729,559,397,335,325,247];
 
 n = length(IBQ);
 
@@ -21,7 +21,7 @@ modus = [w_modus, e_modus];
 WD = [];
 ED = [];
 for i = 1:n
-   i
+   
     [West_direction, East_direction] = test(IBQ(i), ISS(i), modus);
     %           Input_Count,        Warteschlange
     WD = [WD; West_direction(1), West_direction(2)];
@@ -33,26 +33,19 @@ end
 results=figure;
 
 subplot(2,1,1)
+plot( 0:length(IBQ)-1, WD(:,2)','--','linewidth',2 );
 
-plot( [0:length(IBQ)-1], WD(:,2)','--','linewidth',2 );
-xlim([0,length(IBQ)-1]);
 title('Current status west-direction: Bahnhofquai->Sihlstrasse')
 xlabel('time of day')
 ylabel('Traffic jam ahead traffic light')
  
 subplot(2,1,2)
-plot( [0:length(ISS)-1], ED(:,2)','--','linewidth',2); 
-xlim([0,length(ISS)-1]);
+plot( 0:length(ISS)-1, ED(:,2)','--','linewidth',2); 
 title('Current status east-direction: Sihlstrasse->Bahnhofquai')
 xlabel('time of day')
 ylabel('Traffic jam ahead traffic light')
 
 hold off
-
-
-
-
-
 
 
 

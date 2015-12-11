@@ -1,4 +1,4 @@
-function [tl, map, map_size, car_count ] = simulation_sihlstrasse( v_max, free_road )
+function [tl, map, map_size] = simulation_sihlstrasse( v_max, free_road, modus )
 %Datenstruktur der Simulation initialisieren
 
 %traffic_light
@@ -26,10 +26,10 @@ car_count = 15; %initial car count
 %A5 Position: 636/85
 
 
-map = ones(2,map_size)*free_road;
+map = ones(modus,map_size)*free_road;
 
 %Optional: place cars on the street
-for street = 1:2
+for street = 1:modus
     for i = 1:car_count
         while (1)
             position=floor(rand*(map_size));
@@ -39,4 +39,9 @@ for street = 1:2
             end
         end
     end
+end
+if (modus==2)
+    map = [map,[car_count;car_count]];
+else
+    map = [map,car_count];
 end
